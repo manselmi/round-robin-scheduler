@@ -1,0 +1,65 @@
+# vim: set ft=yaml :
+
+
+# To learn more about pre-commit, please see:
+#
+#   https://pre-commit.com
+#   https://pre-commit.com/hooks.html
+
+minimum_pre_commit_version: '3.7.1'
+
+default_language_version:
+  python: 'python3.12'
+
+repos:
+
+  - repo: 'https://github.com/astral-sh/ruff-pre-commit'
+    rev: 'v0.5.3'
+    hooks:
+      - id: 'ruff'
+        args:
+          - '--fix'
+        stages:
+          - 'commit'
+      - id: 'ruff-format'
+        stages:
+          - 'commit'
+
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: 'v4.6.0'
+    hooks:
+      - id: 'check-case-conflict'
+        stages:
+          - 'commit'
+      - id: 'check-json'
+        stages:
+          - 'commit'
+      - id: 'check-symlinks'
+        stages:
+          - 'commit'
+      - id: 'check-toml'
+        stages:
+          - 'commit'
+      - id: 'check-vcs-permalinks'
+        stages:
+          - 'commit'
+      - id: 'check-yaml'
+        stages:
+          - 'commit'
+      - id: 'debug-statements'
+        stages:
+          - 'commit'
+      - id: 'destroyed-symlinks'
+        stages:
+          - 'commit'
+      - id: 'end-of-file-fixer'
+        stages:
+          - 'commit'
+      - id: 'fix-byte-order-marker'
+        stages:
+          - 'commit'
+      - id: 'trailing-whitespace'
+        args:
+          - '--markdown-linebreak-ext=md'
+        stages:
+          - 'commit'

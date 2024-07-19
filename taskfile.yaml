@@ -1,0 +1,15 @@
+# vim: set ft=yaml :
+#
+# https://taskfile.dev
+
+
+version: '3'
+
+set: ['errexit', 'nounset', 'pipefail']
+
+includes:
+
+  uv:
+    taskfile: 'uv.yaml'
+    vars:
+      PYTHON_MINOR_VERSION: '3.12'

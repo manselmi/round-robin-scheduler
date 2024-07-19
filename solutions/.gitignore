@@ -1,0 +1,4 @@
+# Non-solution files
+*[!0-9]*
+
+!.gitignore

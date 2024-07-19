@@ -1,0 +1,8 @@
+# vim: set ft=requirements :
+
+
+networkx
+orjson
+ortools
+rich  # weak dependency of structlog
+structlog

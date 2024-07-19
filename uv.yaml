@@ -1,0 +1,116 @@
+# vim: set ft=yaml :
+#
+# https://taskfile.dev
+
+
+version: '3'
+
+set: ['errexit', 'nounset', 'pipefail']
+
+vars:
+  # Cache Directory Tagging Specification
+  #   https://bford.info/cachedir/
+  CACHEDIR_TAG: 'CACHEDIR.TAG'
+  PRINTF_CACHEDIR_TAG_CONTENT: 'printf %s Signature:\ 8a477f597d28d172789f06886806bc55'
+  PYTHON_MINOR_VERSION: '{{ .PYTHON_MINOR_VERSION | default "3.12" }}'
+  REQUIREMENTS_IN: '{{ .REQUIREMENTS_IN | default "requirements.in" }}'
+  REQUIREMENTS_TXT: '{{ .REQUIREMENTS_TXT | default "requirements.txt" }}'
+  VENV: '{{ .VENV | default ".venv" }}'
+
+tasks:
+
+  preflight:
+    desc: 'Execute pre-flight checks and commands.'
+    summary: |
+      Execute pre-flight checks and commands.
+
+      Ensure uv command exists ( https://github.com/astral-sh/uv#readme ).
+
+      Ensure python{{ .PYTHON_MINOR_VERSION | shellQuote }} command exists.
+
+      Add {{ .CACHEDIR_TAG | shellQuote }} to .task directory ( https://bford.info/cachedir/ ).
+    internal: true
+    silent: true
+    run: 'once'
+    cmds:
+      - 'mkdir -p -- .task'
+      - '{{ .PRINTF_CACHEDIR_TAG_CONTENT }} > .task/{{ .CACHEDIR_TAG | shellQuote }}'
+    preconditions:
+      - sh: 'command -v -- uv'
+        msg: 'uv command does not exist.'
+      - sh: 'command -v -- python{{ .PYTHON_MINOR_VERSION | shellQuote }}'
+        msg: 'python{{ .PYTHON_MINOR_VERSION | shellQuote }} command does not exist.'
+
+  compile:
+    desc: 'Compile Python requirements with uv.'
+    summary: |
+      Compile Python requirements with uv.
+
+      Additional CLI args may be passed to uv like so:
+
+        task {{ .TASK | shellQuote }} [-- <UV_PIP_COMPILE_CLI_ARG>…]
+
+      For example, to upgrade all Python requirements in {{ .REQUIREMENTS_TXT | shellQuote }}:
+
+        task {{ .TASK | shellQuote }} -- --upgrade
+    deps: ['preflight']
+    env:
+      UV_CUSTOM_COMPILE_COMMAND: 'task {{ .TASK | shellQuote }} [-- <UV_PIP_COMPILE_CLI_ARG>…]'
+    cmds:
+      - 'uv pip compile
+          --output-file={{ .REQUIREMENTS_TXT | shellQuote }}
+          --python-version={{ .PYTHON_MINOR_VERSION | shellQuote }}
+          {{ if .COMPILE_CLI_ARGS }}{{ .COMPILE_CLI_ARGS }}{{ else }}{{ .CLI_ARGS }}{{ end }}
+          -- {{ .REQUIREMENTS_IN | shellQuote }}'
+    sources:
+      - '{{ .REQUIREMENTS_IN }}'
+    generates:
+      - '{{ .REQUIREMENTS_TXT }}'
+    status:
+      - '{{ empty .COMPILE_CLI_ARGS | ternary "true" "false" }}'
+      - '{{ empty .CLI_ARGS | ternary "true" "false" }}'
+
+  create:
+    desc: 'Create a Python virtualenv with uv.'
+    summary: |
+      Create a Python virtualenv with uv.
+
+      Create a virtualenv with the requested Python minor version
+      (default: {{ .PYTHON_MINOR_VERSION | shellQuote }}).
+
+      Add {{ .CACHEDIR_TAG | shellQuote }} to {{ .VENV | shellQuote }} directory
+      ( https://bford.info/cachedir/ ).
+    deps: ['preflight']
+    cmds:
+      - 'rm -fr -- {{ .VENV | shellQuote }}'
+      - 'uv venv --python={{ .PYTHON_MINOR_VERSION | shellQuote }} -- {{ .VENV | shellQuote }}'
+      - '{{ .PRINTF_CACHEDIR_TAG_CONTENT }} > {{ .VENV | shellQuote }}/{{ .CACHEDIR_TAG | shellQuote }}'
+      - 'touch -- {{ .VENV | shellQuote }}/.create.success'
+    status:
+      - 'test -f {{ .VENV | shellQuote }}/.create.success'
+      - 'test "$({{ .VENV | shellQuote }}/bin/python -c "import sys; print(\".\".join(map(str, sys.version_info[:2])))")" = {{ .PYTHON_MINOR_VERSION | shellQuote }}'
+
+  sync:
+    aliases: ['env', 'venv']
+    desc: 'Sync {{ .REQUIREMENTS_TXT | shellQuote }} to the Python virtualenv.'
+    summary: |
+      Sync {{ .REQUIREMENTS_TXT | shellQuote }} to the Python virtualenv.
+
+      Packages in {{ .VENV | shellQuote }} will be added, removed, upgraded or downgraded according
+      to {{ .REQUIREMENTS_TXT | shellQuote }}.
+    deps: ['preflight', 'create']
+    cmds:
+      - 'rm -f -- {{ .VENV | shellQuote }}/.sync.success'
+      - 'uv pip sync --python={{ .VENV | shellQuote }} --strict -- {{ .REQUIREMENTS_TXT | shellQuote }}'
+      - 'touch -- {{ .VENV | shellQuote }}/.sync.success'
+    sources:
+      - '{{ .REQUIREMENTS_TXT }}'
+    status:
+      - 'test -f {{ .VENV | shellQuote }}/.sync.success'
+
+  upgrade:
+    desc: 'Upgrade Python requirements with uv.'
+    cmds:
+      - task: 'compile'
+        vars:
+          COMPILE_CLI_ARGS: '--upgrade'
