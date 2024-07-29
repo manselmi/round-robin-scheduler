@@ -6,7 +6,7 @@
 #   https://pre-commit.com
 #   https://pre-commit.com/hooks.html
 
-minimum_pre_commit_version: '3.7.1'
+minimum_pre_commit_version: '3.8.0'
 
 default_language_version:
   python: 'python3.12'
