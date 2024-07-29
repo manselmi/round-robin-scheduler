@@ -1,0 +1,4 @@
+[submodule "taskfile-library"]
+	branch = main
+	path = .taskfile-library
+	url = https://github.com/manselmi/taskfile-library.git

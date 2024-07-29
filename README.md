@@ -21,6 +21,7 @@ recurring 1:1 meetings. This script can do that.
 * Python 3.12. Prepare a virtual environment by running the following code:
 
     ``` shell
+    git submodule update --init --recursive
     task uv:venv
     source .venv/bin/activate
     ```
