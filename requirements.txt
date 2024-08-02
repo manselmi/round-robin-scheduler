@@ -20,7 +20,7 @@ ortools==9.10.4067
     # via -r requirements.in
 pandas==2.2.2
     # via ortools
-protobuf==5.27.2
+protobuf==5.27.3
     # via ortools
 pygments==2.18.0
     # via rich
