@@ -221,6 +221,11 @@ work/
 #   https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data#Vault+settings
 **/.obsidian/workspace.json
 
+# Pixi
+#   https://pixi.sh
+**/.pixi/*
+!**/.pixi/config.toml
+
 # Python
 #   https://github.com/github/gitignore/blob/main/Python.gitignore
 *$py.class

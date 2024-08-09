@@ -1,6 +1,28 @@
 # vim: set ft=toml :
 
 
+[project]
+name = 'round-robin-scheduler'
+requires-python = '>= 3.12'
+dependencies = [
+  'networkx',
+  'orjson',
+  'ortools',
+  'rich',  # weak dependency of structlog
+  'structlog',
+]
+
+
+[tool.pixi.project]
+channels = ['conda-forge']
+platforms = [
+  'linux-64',
+  'linux-aarch64',
+  'osx-64',
+  'osx-arm64',
+]
+
+
 [tool.ruff]
 line-length = 100
 target-version = 'py312'
