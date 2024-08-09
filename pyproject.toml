@@ -22,6 +22,19 @@ platforms = [
   'osx-arm64',
 ]
 
+[tool.pixi.environments]
+lint = { features = ['lint'] }
+
+[tool.pixi.feature.lint.pypi-dependencies]
+pre-commit = { version = '*' }
+pre-commit-hooks = { version = '*' }
+ruff = { version = '*' }
+
+[tool.pixi.feature.lint.tasks]
+lint = { depends-on = ['pre-commit-run'] }
+pre-commit-install = { cmd = ['pre-commit', 'install'] }
+pre-commit-run = { cmd = ['pre-commit', 'run', '--all-files'] }
+
 
 [tool.ruff]
 line-length = 100
