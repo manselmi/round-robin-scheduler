@@ -32,49 +32,49 @@ ruff = { version = '*' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
+pre-commit-run = { cmd = ['pre-commit', 'run', '--all-files'] }
 pre-commit-install = { depends-on = [
-  'pre-commit-install-commit-msg',
-  'pre-commit-install-post-checkout',
-  'pre-commit-install-post-commit',
-  'pre-commit-install-post-merge',
-  'pre-commit-install-post-rewrite',
-  'pre-commit-install-pre-commit',
-  'pre-commit-install-pre-merge-commit',
-  'pre-commit-install-pre-push',
-  'pre-commit-install-pre-rebase',
-  'pre-commit-install-prepare-commit-msg',
+  '_pre-commit-install-commit-msg',
+  '_pre-commit-install-post-checkout',
+  '_pre-commit-install-post-commit',
+  '_pre-commit-install-post-merge',
+  '_pre-commit-install-post-rewrite',
+  '_pre-commit-install-pre-commit',
+  '_pre-commit-install-pre-merge-commit',
+  '_pre-commit-install-pre-push',
+  '_pre-commit-install-pre-rebase',
+  '_pre-commit-install-prepare-commit-msg',
 ] }
-pre-commit-install-commit-msg = { cmd = [
+_pre-commit-install-commit-msg = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'commit-msg',
 ] }
-pre-commit-install-post-checkout = { cmd = [
+_pre-commit-install-post-checkout = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'post-checkout',
 ] }
-pre-commit-install-post-commit = { cmd = [
+_pre-commit-install-post-commit = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'post-commit',
 ] }
-pre-commit-install-post-merge = { cmd = [
+_pre-commit-install-post-merge = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'post-merge',
 ] }
-pre-commit-install-post-rewrite = { cmd = [
+_pre-commit-install-post-rewrite = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'post-rewrite',
 ] }
-pre-commit-install-pre-commit = { cmd = [
+_pre-commit-install-pre-commit = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'pre-commit',
 ] }
-pre-commit-install-pre-merge-commit = { cmd = [
+_pre-commit-install-pre-merge-commit = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'pre-merge-commit',
 ] }
-pre-commit-install-pre-push = { cmd = [
+_pre-commit-install-pre-push = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'pre-push',
 ] }
-pre-commit-install-pre-rebase = { cmd = [
+_pre-commit-install-pre-rebase = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'pre-rebase',
 ] }
-pre-commit-install-prepare-commit-msg = { cmd = [
+_pre-commit-install-prepare-commit-msg = { cmd = [
   'pre-commit', 'install', '-f', '-t', 'prepare-commit-msg',
 ] }
-pre-commit-run = { cmd = ['pre-commit', 'run', '--all-files'] }
 
 
 [tool.ruff]
