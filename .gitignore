@@ -223,8 +223,7 @@ work/
 
 # Pixi
 #   https://pixi.sh
-**/.pixi/*
-!**/.pixi/config.toml
+.pixi/
 
 # Python
 #   https://github.com/github/gitignore/blob/main/Python.gitignore
