@@ -91,12 +91,12 @@ repos:
         name: 'ruff'
         entry: 'pixi run -e lint -- ruff check --fix --exit-non-zero-on-fix --force-exclude'
         language: 'system'
-        types_or: ['python', 'pyi']
+        types_or: ['python', 'pyi', 'jupyter']
         require_serial: true
 
       - id: 'ruff-format'
         name: 'ruff-format'
         entry: 'pixi run -e lint -- ruff format --force-exclude'
         language: 'system'
-        types_or: ['python', 'pyi']
+        types_or: ['python', 'pyi', 'jupyter']
         require_serial: true
