@@ -3,14 +3,6 @@
 
 [project]
 name = 'round-robin-scheduler'
-requires-python = '>= 3.12'
-dependencies = [
-  'networkx',
-  'orjson',
-  'ortools',
-  'rich',  # weak dependency of structlog
-  'structlog',
-]
 
 
 [tool.pixi.project]
@@ -22,14 +14,24 @@ platforms = [
   'osx-arm64',
 ]
 
+[tool.pixi.dependencies]
+python = { version = '>=3.12.5,<3.13' }
+
+[tool.pixi.pypi-dependencies]
+networkx = { version = '>=3.3' }
+orjson = { version = '>=3.10.7' }
+ortools = { version = '>=9.10.4067' }
+rich = { version = '>=13.7.1' }  # weak dependency of structlog
+structlog = { version = '>=24.4.0' }
+
 [tool.pixi.environments]
 default = { solve-group = 'default' }
 lint = { features = ['lint'], solve-group = 'default' }
 
 [tool.pixi.feature.lint.pypi-dependencies]
-pre-commit = { version = '*' }
-pre-commit-hooks = { version = '*' }
-ruff = { version = '*' }
+pre-commit = { version = '>=3.8.0' }
+pre-commit-hooks = { version = '>=4.6.0' }
+ruff = { version = '>=0.6.0' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
