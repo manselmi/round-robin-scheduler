@@ -16,11 +16,17 @@ recurring 1:1 meetings. This script can do that.
 
 * [Pixi](https://pixi.sh)
 
-* Prepare the environment by running the following code:
+Configure Git hooks:
 
-    ``` shell
-    pixi shell
-    ```
+``` shell
+pixi run -- pre-commit-install
+```
+
+Prepare the environment:
+
+``` shell
+pixi shell
+```
 
 ## Usage
 

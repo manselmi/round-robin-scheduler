@@ -8,7 +8,7 @@
 # The following command pipeline prints all distinct file extensions, or filenames if the filename
 # has no extension:
 #
-#   find . -type d -name .git -prune -o \! -type d -print0 \
+#   find -- . -type d -name .git -prune -o \! -type d -print0 \
 #     | gawk -v RS='\0' -v ORS='\0' -- '{ match($0, /\/([^\/]+)$/, a); s = a[1]; print match(s, /(\.[^.]+)$/, a) ? a[1] : s }' \
 #     | sort -fuz \
 #     | gawk -v RS='\0' -v ORS='\n' -- '{ print gensub(/[^[:print:]]+/, "�", "g") }'
@@ -16,7 +16,7 @@
 # The following command pipeline prints a four-column table that may be useful for debugging
 # gitignore patterns:
 #
-#   find . -type d -name .git -prune -o \! -type d -print0 \
+#   find -- . -type d -name .git -prune -o \! -type d -print0 \
 #     | sort -fz \
 #     | git check-ignore -nvz --no-index --stdin \
 #     | gawk -v RS='\0' -v ORS='\n' -- '{ print gensub(/[^[:print:]]+/, "�", "g") }' \
