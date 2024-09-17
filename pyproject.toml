@@ -20,7 +20,7 @@ python = { version = '>=3.12.5,<3.13' }
 [tool.pixi.pypi-dependencies]
 networkx = { version = '>=3.3' }
 orjson = { version = '>=3.10.7' }
-ortools = { version = '>=9.10.4067' }
+ortools = { version = '>=9.11.4210' }
 rich = { version = '>=13.8.1' }  # weak dependency of structlog
 structlog = { version = '>=24.4.0' }
 
