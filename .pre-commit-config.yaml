@@ -6,7 +6,7 @@
 #   https://pre-commit.com
 #   https://pre-commit.com/hooks.html
 
-default_stages: ['commit']
+default_stages: ['pre-commit']
 
 repos:
 
