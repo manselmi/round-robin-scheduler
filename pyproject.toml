@@ -18,7 +18,7 @@ platforms = [
 python = { version = '>=3.12.7,<3.13' }
 
 [tool.pixi.pypi-dependencies]
-networkx = { version = '>=3.3' }
+networkx = { version = '>=3.4.1' }
 orjson = { version = '>=3.10.7' }
 ortools = { version = '>=9.11.4210' }
 rich = { version = '>=13.9.2' }  # weak dependency of structlog
@@ -29,9 +29,9 @@ default = { solve-group = 'default' }
 lint = { features = ['lint'], solve-group = 'default' }
 
 [tool.pixi.feature.lint.pypi-dependencies]
-pre-commit = { version = '>=4.0.0' }
+pre-commit = { version = '>=4.0.1' }
 pre-commit-hooks = { version = '>=5.0.0' }
-ruff = { version = '>=0.6.9' }
+ruff = { version = '>=0.7.0' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
