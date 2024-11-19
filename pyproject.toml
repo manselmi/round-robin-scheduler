@@ -31,7 +31,7 @@ lint = { features = ['lint'], solve-group = 'default' }
 [tool.pixi.feature.lint.pypi-dependencies]
 pre-commit = { version = '>=4.0.1' }
 pre-commit-hooks = { version = '>=5.0.0' }
-ruff = { version = '>=0.7.3' }
+ruff = { version = '>=0.7.4' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
