@@ -29,9 +29,9 @@ default = { solve-group = 'default' }
 lint = { features = ['lint'], solve-group = 'default' }
 
 [tool.pixi.feature.lint.pypi-dependencies]
-pre-commit = { version = '>=4.1.0' }
+pre-commit = { version = '>=4.2.0' }
 pre-commit-hooks = { version = '>=5.0.0' }
-ruff = { version = '>=0.10.0' }
+ruff = { version = '>=0.11.0' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
