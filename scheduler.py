@@ -99,7 +99,7 @@ if __name__ == "__main__":
             "participants were in the same group in any of the N most "
             "recent historical solutions, they will not be assigned to "
             "the same group (None makes N infinite, 0 disables this "
-            "constraint"
+            "constraint)"
         ),
     )
     parser.add_argument(

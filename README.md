@@ -131,7 +131,7 @@ recurring 1:1 meetings. This script can do that.
                             generating the next solution; if two participants were in the same group
                             in any of the N most recent historical solutions, they will not be
                             assigned to the same group (None makes N infinite, 0 disables this
-                            constraint (default: None)
+                            constraint) (default: None)
       --solution-limit SOLUTION_LIMIT
                             max number N of solutions to generate; this option is primarily for
                             exploratory purposes and should normally be set to 1 (default: 1)
