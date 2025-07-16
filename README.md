@@ -72,7 +72,8 @@ recurring 1:1 meetings. This script can do that.
    to `2` and may not be less than that.
 
 1. Select the historical solution limit. The script accepts a `--historical-solution-limit` argument
-   that defaults to `None` (no limit); if specified, it must be a non-negative integer.
+   that defaults to `None` (unbounded lookback window); if specified, it must be a non-negative
+   integer.
 
    Whenever the script is run, a solution (if one exists) is written out to the `solutions`
    directory. When the script is first run, the solution is written to a file named `0`. When next
