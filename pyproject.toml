@@ -31,7 +31,7 @@ lint = { features = ['lint'], solve-group = 'default' }
 [tool.pixi.feature.lint.pypi-dependencies]
 pre-commit = { version = '>=4.3.0' }
 pre-commit-hooks = { version = '>=6.0.0' }
-ruff = { version = '>=0.12.11' }
+ruff = { version = '>=0.13.0' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
@@ -85,8 +85,9 @@ line-length = 100
 target-version = 'py313'
 
 [tool.ruff.lint]
-dummy-variable-rgx = '^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$'
+explicit-preview-rules = true
 fixable = ['ALL']
+future-annotations = true
 ignore = [
   'ANN',      # mypy handles our type annotations
   'COM812',   # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
@@ -109,6 +110,7 @@ ignore = [
   'TCH',      # TYPE_CHECKING blocks break autodocs
   'W191',     # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
 ]
+preview = true
 select = ['ALL']
 unfixable = []
 
