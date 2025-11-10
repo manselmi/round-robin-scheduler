@@ -5,7 +5,7 @@
 name = 'round-robin-scheduler'
 
 
-[tool.pixi.project]
+[tool.pixi.workspace]
 channels = ['conda-forge']
 platforms = [
   'linux-64',
@@ -15,23 +15,23 @@ platforms = [
 ]
 
 [tool.pixi.dependencies]
-python = { version = '>=3.13.7,<3.14' }
+python = { version = '>=3.13.9,<3.14' }
 
 [tool.pixi.pypi-dependencies]
 networkx = { version = '>=3.5' }
-orjson = { version = '>=3.11.3' }
+orjson = { version = '>=3.11.4' }
 ortools = { version = '>=9.14.6206' }
-rich = { version = '>=14.1.0' }  # weak dependency of structlog
-structlog = { version = '>=25.4.0' }
+rich = { version = '>=14.2.0' }  # weak dependency of structlog
+structlog = { version = '>=25.5.0' }
 
 [tool.pixi.environments]
 default = { solve-group = 'default' }
 lint = { features = ['lint'], solve-group = 'default' }
 
 [tool.pixi.feature.lint.pypi-dependencies]
-pre-commit = { version = '>=4.3.0' }
+pre-commit = { version = '>=4.4.0' }
 pre-commit-hooks = { version = '>=6.0.0' }
-ruff = { version = '>=0.13.0' }
+ruff = { version = '>=0.14.4' }
 
 [tool.pixi.feature.lint.tasks]
 lint = { depends-on = ['pre-commit-run'] }
@@ -82,7 +82,7 @@ _pre-commit-install-prepare-commit-msg = { cmd = [
 
 [tool.ruff]
 line-length = 100
-target-version = 'py313'
+target-version = 'py314'
 
 [tool.ruff.lint]
 explicit-preview-rules = true
