@@ -1,15 +1,21 @@
 # vim: set ft=python :
 
+from __future__ import annotations
+
 import itertools
 import logging
 import sys
-from collections.abc import Callable, Sequence
 from enum import IntEnum, StrEnum, auto
-from types import TracebackType
+from typing import TYPE_CHECKING
 
 import orjson
 import structlog
-from structlog.typing import Processor, WrappedLogger
+
+if TYPE_CHECKING:
+    from collections.abc import Callable, Sequence
+    from types import TracebackType
+
+    from structlog.typing import Processor, WrappedLogger
 
 logger = structlog.get_logger(__name__)
 
