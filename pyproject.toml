@@ -84,6 +84,9 @@ _pre-commit-install-prepare-commit-msg = { cmd = [
 line-length = 100
 target-version = 'py314'
 
+[tool.ruff.format]
+preview = true
+
 [tool.ruff.lint]
 future-annotations = true
 ignore = [

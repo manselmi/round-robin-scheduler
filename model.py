@@ -157,13 +157,11 @@ class Model:
             for j in range(i + 1, N - 1):
                 for k in range(j + 1, N):
                     self._model.Add(
-                        sum(
-                            [
-                                self._variables[i][j],
-                                self._variables[i][k],
-                                self._variables[j][k],
-                            ]
-                        )
+                        sum([
+                            self._variables[i][j],
+                            self._variables[i][k],
+                            self._variables[j][k],
+                        ])
                         != 2
                     )
 
