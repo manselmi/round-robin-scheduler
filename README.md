@@ -19,7 +19,7 @@ recurring 1:1 meetings. This script can do that.
 * Configure Git hooks:
 
     ``` shell
-    pixi run -- pre-commit-install
+    pixi run -- prek-install
     ```
 
 * Prepare the environment:

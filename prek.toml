@@ -1,0 +1,111 @@
+# vim: set ft=toml :
+#
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+#:schema https://www.schemastore.org/prek.json
+
+
+default_install_hook_types = [
+  'commit-msg',
+  'post-checkout',
+  'post-commit',
+  'post-merge',
+  'post-rewrite',
+  'pre-commit',
+  'pre-merge-commit',
+  'pre-push',
+  'pre-rebase',
+  'prepare-commit-msg',
+]
+
+
+default_stages = [
+  'pre-commit',
+]
+
+
+[[repos]]
+repo = 'builtin'
+hooks = [
+  {
+    id = 'check-added-large-files',
+  },
+  {
+    id = 'check-case-conflict',
+  },
+  {
+    id = 'check-executables-have-shebangs',
+  },
+  {
+    id = 'check-json',
+  },
+  {
+    id = 'check-json5',
+  },
+  {
+    id = 'check-merge-conflict',
+  },
+  {
+    id = 'check-symlinks',
+  },
+  {
+    id = 'check-toml',
+  },
+  {
+    id = 'check-xml',
+  },
+  {
+    id = 'check-yaml',
+  },
+  {
+    id = 'detect-private-key',
+  },
+  {
+    id = 'end-of-file-fixer',
+  },
+  {
+    id = 'fix-byte-order-marker',
+  },
+  {
+    id = 'mixed-line-ending',
+    args = [
+      '--fix=no',
+    ],
+    exclude = '\A\.gitignore\z',
+  },
+  {
+    id = 'trailing-whitespace',
+    args = [
+      '--markdown-linebreak-ext=md',
+    ],
+  },
+]
+
+[[repos]]
+repo = 'local'
+hooks = [
+  {
+    id = 'ruff',
+    name = 'ruff',
+    entry = 'pixi run --no-progress -e lint -- ruff check --fix --exit-non-zero-on-fix --force-exclude',
+    language = 'system',
+    types_or = [
+      'python',
+      'pyi',
+      'jupyter',
+    ],
+    require_serial = true,
+  },
+  {
+    id = 'ruff-format',
+    name = 'ruff-format',
+    entry = 'pixi run --no-progress -e lint -- ruff format --force-exclude',
+    language = 'system',
+    types_or = [
+      'python',
+      'pyi',
+      'jupyter',
+    ],
+    require_serial = true,
+  },
+]
