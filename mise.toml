@@ -1,0 +1,53 @@
+# vim: set ft=toml :
+
+
+[settings]
+lockfile = true
+
+
+[tasks.hooks-install]
+hide = true
+run = [{ task = 'hooks-uninstall' }, 'hk install --mise']
+
+[tasks.hooks-uninstall]
+env = { GIT_HOOKS_DIR = '.git/hooks' }
+hide = true
+run = [
+  'mkdir -p -- "${GIT_HOOKS_DIR}"',
+  'find -- "${GIT_HOOKS_DIR}" -mindepth 1 -delete',
+]
+
+[tasks.install]
+run = ['mise install', { task = 'hooks-install' }, 'pixi install --all']
+
+[tasks.lint]
+run = 'hk fix --all'
+
+[tasks.lock]
+run = [
+  'truncate -s 0 -- mise.lock',
+  'mise lock --platform linux-arm64,linux-x64,macos-arm64',
+]
+
+[tasks.upgrade]
+depends = ['install']
+env = { PKL = 'hk.pkl' }
+run = [
+  """\
+hk_ver() { mise tool --json -- hk | jq -r -- '.active_versions[]' | sort -r -V | head -n 1; } && \
+hk_str() { printf '%s' "package://github.com/jdx/hk/releases/download/v${1}/hk@${1}"; } && \
+OLD="$(hk_str "$(hk_ver)")" && \
+mise upgrade && \
+mise run lock && \
+NEW="$(hk_str "$(hk_ver)")" && \
+sd -F -- "${OLD}" "${NEW}" "${PKL}";""",
+  'pixi update',
+]
+
+
+[tools]
+hk = 'latest'
+jq = 'latest'
+pixi = 'latest'
+pkl = 'latest'
+sd = 'latest'

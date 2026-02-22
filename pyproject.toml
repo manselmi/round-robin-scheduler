@@ -10,33 +10,25 @@ channels = ['conda-forge']
 platforms = [
   'linux-64',
   'linux-aarch64',
-  'osx-64',
   'osx-arm64',
 ]
 
 [tool.pixi.dependencies]
-python = { version = '>=3.14.3,<3.15' }
+python = { version = '>=3.14,<3.15' }
 
 [tool.pixi.pypi-dependencies]
-networkx = { version = '>=3.6.1' }
-orjson = { version = '>=3.11.7' }
-ortools = { version = '>=9.15.6755' }
-rich = { version = '>=14.3.2' }  # weak dependency of structlog
-structlog = { version = '>=25.5.0' }
+networkx = { version = '*' }
+orjson = { version = '*' }
+ortools = { version = '*' }
+rich = { version = '*' }  # weak dependency of structlog
+structlog = { version = '*' }
 
 [tool.pixi.environments]
 default = { solve-group = 'default' }
 lint = { features = ['lint'], solve-group = 'default' }
 
-[tool.pixi.feature.lint.dependencies]
-prek = { version = '>=0.3.2' }
-ruff = { version = '>=0.15.1' }
-
-[tool.pixi.feature.lint.tasks]
-lint = { depends-on = ['prek-run'] }
-# https://github.com/prefix-dev/pixi/discussions/1897
-prek-install = { cmd = ['prek', 'install', '-f'] }
-prek-run = { cmd = ['prek', 'run', '--all-files'] }
+[tool.pixi.feature.lint.pypi-dependencies]
+ruff = { version = '*' }
 
 
 [tool.ruff]

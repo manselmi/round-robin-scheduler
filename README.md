@@ -14,19 +14,12 @@ recurring 1:1 meetings. This script can do that.
 
 ## Prerequisites
 
-* [Pixi](https://pixi.sh)
+* [mise](https://mise.jdx.dev/)
 
-* Configure Git hooks:
-
-    ``` shell
-    pixi run -- prek-install
-    ```
-
-* Prepare the environment:
-
-    ```shell
-    pixi shell
-    ```
+``` shell
+mise run install
+mise exec -- pixi shell
+```
 
 ## Usage
 
@@ -161,7 +154,7 @@ recurring 1:1 meetings. This script can do that.
 ```
 
 ``` shell
-column -t solutions/0
+column -t -- solutions/0
 ```
 
 ``` text

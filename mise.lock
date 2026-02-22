@@ -1,0 +1,34 @@
+[[tools.hk]]
+version = "1.36.0"
+backend = "aqua:jdx/hk"
+"platforms.linux-arm64" = { checksum = "sha256:51cf51e2035038ee64d772e71f8daf4978380ef82faffee2b12c413f009341ab", url = "https://github.com/jdx/hk/releases/download/v1.36.0/hk-aarch64-unknown-linux-gnu.tar.gz"}
+"platforms.linux-x64" = { checksum = "sha256:d20fa0be3f1135abc74471670306ae0353ad2336804595362293f0c8460952e7", url = "https://github.com/jdx/hk/releases/download/v1.36.0/hk-x86_64-unknown-linux-gnu.tar.gz"}
+"platforms.macos-arm64" = { checksum = "sha256:553ff3c7c18d91f1c1dcdbae44315db0324b52336b5a02ed5b9c382f08499b3b", url = "https://github.com/jdx/hk/releases/download/v1.36.0/hk-aarch64-apple-darwin.tar.gz"}
+
+[[tools.jq]]
+version = "1.8.1"
+backend = "aqua:jqlang/jq"
+"platforms.linux-arm64" = { checksum = "sha256:6bc62f25981328edd3cfcfe6fe51b073f2d7e7710d7ef7fcdac28d4e384fc3d4", url = "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-linux-arm64"}
+"platforms.linux-x64" = { checksum = "sha256:020468de7539ce70ef1bceaf7cde2e8c4f2ca6c3afb84642aabc5c97d9fc2a0d", url = "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-linux-amd64"}
+"platforms.macos-arm64" = { checksum = "sha256:a9fe3ea2f86dfc72f6728417521ec9067b343277152b114f4e98d8cb0e263603", url = "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-macos-arm64"}
+
+[[tools.pixi]]
+version = "0.63.2"
+backend = "github:prefix-dev/pixi"
+"platforms.linux-arm64" = { checksum = "sha256:dbde6dbc2806602171e17305ce005e1aed519f2f2461a7cafd0093e92b7e7681", url = "https://github.com/prefix-dev/pixi/releases/download/v0.63.2/pixi-aarch64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/342752461"}
+"platforms.linux-x64" = { checksum = "sha256:b2a9e26bb6c80fe00618a02e7198dec222e1fbcec61e04c11b6e6538089ab100", url = "https://github.com/prefix-dev/pixi/releases/download/v0.63.2/pixi-x86_64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/342752537"}
+"platforms.macos-arm64" = { checksum = "sha256:28fca5e7335b5f6b5b05acb9f83b61fa65e27e5dd69fe7a1750aa884ea4163cb", url = "https://github.com/prefix-dev/pixi/releases/download/v0.63.2/pixi-aarch64-apple-darwin.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/342752441"}
+
+[[tools.pkl]]
+version = "0.30.2"
+backend = "aqua:apple/pkl"
+"platforms.linux-arm64" = { checksum = "sha256:8da3ae65104eb7058e35dc4a9fe46bd8ece2b6faf4b65d0b1054cadb2ede0246", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-aarch64"}
+"platforms.linux-x64" = { checksum = "sha256:474e5137d60a9e2320fde19a526f42c36d8e9d3b245139d59a9b8dff85283c76", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-amd64"}
+"platforms.macos-arm64" = { checksum = "sha256:f1db44c0f6f859aee88c9d7d272f2371ae40ac95ec9957ae78eff51665158e04", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-aarch64"}
+
+[[tools.sd]]
+version = "1.0.0"
+backend = "aqua:chmln/sd"
+"platforms.linux-arm64" = { url = "https://github.com/chmln/sd/releases/download/v1.0.0/sd-v1.0.0-aarch64-unknown-linux-musl.tar.gz"}
+"platforms.linux-x64" = { url = "https://github.com/chmln/sd/releases/download/v1.0.0/sd-v1.0.0-x86_64-unknown-linux-musl.tar.gz"}
+"platforms.macos-arm64" = { url = "https://github.com/chmln/sd/releases/download/v1.0.0/sd-v1.0.0-aarch64-apple-darwin.tar.gz"}
