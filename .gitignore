@@ -169,12 +169,6 @@ out/
 .Trash/
 .Trash-*/
 
-# Local overrides
-#   https://mise.jdx.dev/configuration.html#mise-toml
-#   https://hk.jdx.dev/configuration.html#hk-local-pkl
-#   https://fnox.jdx.dev/reference/configuration.html#local-overrides
-*.local.*
-
 # macOS
 #   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
 .apdisk
@@ -419,5 +413,11 @@ ehthumbs_vista.db
 Thumbs.db
 Thumbs.db:encryptable
 [Dd]esktop.ini
+
+# Local overrides
+#   https://mise.jdx.dev/configuration.html#mise-toml
+#   https://hk.jdx.dev/configuration.html#hk-local-pkl
+#   https://fnox.jdx.dev/reference/configuration.html#local-overrides
+*.local.*
 
 # Add project-specific patterns here.
