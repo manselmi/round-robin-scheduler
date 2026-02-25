@@ -1,12 +1,7 @@
 # vim: set ft=toml :
 
 
-# https://github.com/jdx/mise/pull/8308
-min_version = '2026.2.20'
-
-
 [settings]
-locked = true
 lockfile = true
 
 
@@ -23,7 +18,12 @@ run = [
 ]
 
 [tasks.install]
-run = ['mise install', { task = 'hooks-install' }, 'pixi install --all']
+run = [
+  'mise install',
+  { task = 'lock' },
+  { task = 'hooks-install' },
+  'pixi install --all',
+]
 
 [tasks.lint]
 run = 'hk fix --all'
@@ -42,7 +42,7 @@ run = [
 hk_ver() { mise tool --json -- hk | jq -r -- '.active_versions[]' | sort -r -V | head -n 1; } && \
 hk_str() { printf '%s' "package://github.com/jdx/hk/releases/download/v${1}/hk@${1}"; } && \
 OLD="$(hk_str "$(hk_ver)")" && \
-env -- MISE_LOCKED=0 mise upgrade && \
+mise upgrade && \
 mise run lock && \
 NEW="$(hk_str "$(hk_ver)")" && \
 sd -F -- "${OLD}" "${NEW}" "${PKL}";""",
