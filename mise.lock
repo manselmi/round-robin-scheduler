@@ -20,11 +20,11 @@ backend = "github:prefix-dev/pixi"
 "platforms.macos-arm64" = { checksum = "sha256:d089dc3fe1a0f3cd66d40f8cfe529ed4418f373935e693ccfe210c7010936751", url = "https://github.com/prefix-dev/pixi/releases/download/v0.64.0/pixi-aarch64-apple-darwin.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/361427489"}
 
 [[tools.pkl]]
-version = "0.30.2"
+version = "0.31.0"
 backend = "aqua:apple/pkl"
-"platforms.linux-arm64" = { checksum = "sha256:8da3ae65104eb7058e35dc4a9fe46bd8ece2b6faf4b65d0b1054cadb2ede0246", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-aarch64"}
-"platforms.linux-x64" = { checksum = "sha256:474e5137d60a9e2320fde19a526f42c36d8e9d3b245139d59a9b8dff85283c76", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-amd64"}
-"platforms.macos-arm64" = { checksum = "sha256:f1db44c0f6f859aee88c9d7d272f2371ae40ac95ec9957ae78eff51665158e04", url = "https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-aarch64"}
+"platforms.linux-arm64" = { checksum = "sha256:471460cdd11e1cb9ac0a5401fdb05277ae3adb3a4573cc0a9c63ee087c1f93c8", url = "https://github.com/apple/pkl/releases/download/0.31.0/pkl-linux-aarch64"}
+"platforms.linux-x64" = { checksum = "sha256:5a5c2a889b68ca92ff4258f9d277f92412b98dfef5057daef7564202a20870b6", url = "https://github.com/apple/pkl/releases/download/0.31.0/pkl-linux-amd64"}
+"platforms.macos-arm64" = { checksum = "sha256:349402ae32c35382c034b0c0af744ffb0d53a213888c44deec94a7810e144889", url = "https://github.com/apple/pkl/releases/download/0.31.0/pkl-macos-aarch64"}
 
 [[tools.sd]]
 version = "1.1.0"
