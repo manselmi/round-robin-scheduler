@@ -13,11 +13,11 @@ backend = "aqua:jqlang/jq"
 "platforms.macos-arm64" = { checksum = "sha256:a9fe3ea2f86dfc72f6728417521ec9067b343277152b114f4e98d8cb0e263603", url = "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-macos-arm64"}
 
 [[tools.pixi]]
-version = "0.64.0"
+version = "0.65.0"
 backend = "github:prefix-dev/pixi"
-"platforms.linux-arm64" = { checksum = "sha256:e424c587a079a96d61cf48b15c7e921f4b06d5d99db4db1d57f4f6be1838ca9b", url = "https://github.com/prefix-dev/pixi/releases/download/v0.64.0/pixi-aarch64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/361427505"}
-"platforms.linux-x64" = { checksum = "sha256:1e8049c819df198cceef7381d74c06a977cd81e56cdd2fc5ac226a87b9f4ee39", url = "https://github.com/prefix-dev/pixi/releases/download/v0.64.0/pixi-x86_64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/361427529"}
-"platforms.macos-arm64" = { checksum = "sha256:d089dc3fe1a0f3cd66d40f8cfe529ed4418f373935e693ccfe210c7010936751", url = "https://github.com/prefix-dev/pixi/releases/download/v0.64.0/pixi-aarch64-apple-darwin.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/361427489"}
+"platforms.linux-arm64" = { checksum = "sha256:c77be0963888a2da84dc79f331bfef7feee9945aff2b2e6ae555e72c4172258f", url = "https://github.com/prefix-dev/pixi/releases/download/v0.65.0/pixi-aarch64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/362918741"}
+"platforms.linux-x64" = { checksum = "sha256:216adf73a7ba92547d38a4768c2c7cdad8cabb90af466b00c9ef69db89dc8649", url = "https://github.com/prefix-dev/pixi/releases/download/v0.65.0/pixi-x86_64-unknown-linux-musl.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/362918797"}
+"platforms.macos-arm64" = { checksum = "sha256:9a64317d9f63381de1b873f172048b5c5cb591fec520bfa384ca8e25357ca47b", url = "https://github.com/prefix-dev/pixi/releases/download/v0.65.0/pixi-aarch64-apple-darwin.tar.gz", url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/362918718"}
 
 [[tools.pkl]]
 version = "0.31.0"
