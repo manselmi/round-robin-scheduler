@@ -37,7 +37,7 @@ run = [
 hk_ver() { mise tool --json -- hk | jq -r -- '.active_versions[]' | sort -r -V | head -n 1; } && \
 hk_str() { printf '%s' "package://github.com/jdx/hk/releases/download/v${1}/hk@${1}"; } && \
 OLD="$(hk_str "$(hk_ver)")" && \
-mise upgrade && \
+mise upgrade --local && \
 mise run lock && \
 NEW="$(hk_str "$(hk_ver)")" && \
 sd -F -- "${OLD}" "${NEW}" "${PKL}";""",
