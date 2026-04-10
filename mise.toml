@@ -1,8 +1,12 @@
 # vim: set ft=toml :
 
 
+min_version = '2026.4.8'
+
+
 [settings]
 lockfile = true
+lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
 
 
 [tasks.hooks-install]
@@ -23,12 +27,6 @@ run = ['mise install', { task = 'hooks-install' }, 'pixi install --all']
 [tasks.lint]
 run = 'hk fix --all'
 
-[tasks.lock]
-run = [
-  'truncate -s 0 -- mise.lock',
-  'mise lock --platform linux-arm64,linux-x64,macos-arm64',
-]
-
 [tasks.upgrade]
 depends = ['install']
 env = { PKL = 'hk.pkl' }
@@ -38,7 +36,7 @@ hk_ver() { mise tool --json -- hk | jq -r -- '.active_versions[]' | sort -r -V |
 hk_str() { printf '%s' "package://github.com/jdx/hk/releases/download/v${1}/hk@${1}"; } && \
 OLD="$(hk_str "$(hk_ver)")" && \
 mise upgrade --local && \
-mise run lock && \
+mise lock && \
 NEW="$(hk_str "$(hk_ver)")" && \
 sd -F -- "${OLD}" "${NEW}" "${PKL}";""",
   'pixi update',
