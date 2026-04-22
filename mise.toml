@@ -4,7 +4,12 @@
 min_version = '2026.4.8'
 
 
+[hooks]
+postinstall = [{ task = 'hooks-install' }, 'pixi install --all']
+
+
 [settings]
+experimental = true
 lockfile = true
 lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
 
@@ -29,6 +34,6 @@ run = ['mise upgrade --local', 'mise lock', 'pixi update']
 
 
 [tools]
-hk = { version = 'latest', postinstall = 'mise run --skip-tools hooks-install' }
-pixi = { version = 'latest', postinstall = 'mise exec --no-deps -- pixi install --all' }
-pkl = { version = 'latest' }
+hk = 'latest'
+pixi = 'latest'
+pkl = 'latest'
