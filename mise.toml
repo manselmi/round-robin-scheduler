@@ -21,31 +21,14 @@ run = [
   'find -- "${GIT_HOOKS_DIR}" -mindepth 1 -delete',
 ]
 
-[tasks.install]
-run = ['mise install', { task = 'hooks-install' }, 'pixi install --all']
-
 [tasks.lint]
 run = 'hk fix --all'
 
 [tasks.upgrade]
-depends = ['install']
-env = { PKL = 'hk.pkl' }
-run = [
-  """\
-hk_ver() { mise tool --json -- hk | jq -r -- '.active_versions[]' | sort -r -V | head -n 1; } && \
-hk_str() { printf '%s' "package://github.com/jdx/hk/releases/download/v${1}/hk@${1}"; } && \
-OLD="$(hk_str "$(hk_ver)")" && \
-mise upgrade --local && \
-mise lock && \
-NEW="$(hk_str "$(hk_ver)")" && \
-sd -F -- "${OLD}" "${NEW}" "${PKL}";""",
-  'pixi update',
-]
+run = ['mise upgrade --local', 'mise lock', 'pixi update']
 
 
 [tools]
-hk = 'latest'
-jq = 'latest'
-pixi = 'latest'
-pkl = 'latest'
-sd = 'latest'
+hk = { version = 'latest', postinstall = 'mise run --skip-tools hooks-install' }
+pixi = { version = 'latest', postinstall = 'mise exec --no-deps -- pixi install --all' }
+pkl = { version = 'latest' }
