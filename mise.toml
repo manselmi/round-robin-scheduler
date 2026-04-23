@@ -19,12 +19,8 @@ hide = true
 run = [{ task = 'hooks-uninstall' }, 'hk install --mise']
 
 [tasks.hooks-uninstall]
-env = { GIT_HOOKS_DIR = '.git/hooks' }
 hide = true
-run = [
-  'mkdir -p -- "${GIT_HOOKS_DIR}"',
-  'find -- "${GIT_HOOKS_DIR}" -mindepth 1 -delete',
-]
+run = 'hk uninstall'
 
 [tasks.lint]
 run = 'hk fix --all'
