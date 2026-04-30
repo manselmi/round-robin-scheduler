@@ -14,7 +14,7 @@ recurring 1:1 meetings. This script can do that.
 
 ## Prerequisites
 
-* [mise](https://mise.jdx.dev/)
+* [mise](https://mise.en.dev/)
 
 ``` shell
 mise exec -- pixi shell
