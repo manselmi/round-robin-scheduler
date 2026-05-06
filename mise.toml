@@ -10,6 +10,7 @@ postinstall = [{ task = 'hooks-install' }, 'pixi install --all']
 
 [settings]
 experimental = true
+locked = true
 lockfile = true
 lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
 
@@ -26,7 +27,7 @@ run = 'hk uninstall'
 run = 'hk fix --all'
 
 [tasks.upgrade]
-run = ['mise upgrade --local', 'mise lock', 'pixi update']
+run = ['mise upgrade --local', 'pixi update']
 
 
 [tools]
