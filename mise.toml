@@ -30,6 +30,8 @@ run = 'hk uninstall'
 run = 'hk fix --all'
 
 [tasks.upgrade]
+# required to correctly initialize lockfile when locked = true as of 2026.5.16
+env.MISE_LOCKED = '0'
 run = ['mise upgrade --local', 'mise lock', 'pixi update']
 
 
