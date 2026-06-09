@@ -1,7 +1,7 @@
 // vim: set ft=pkl :
 
-amends "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Config.pkl"
-import "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v1.47.0/hk@1.47.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.47.0/hk@1.47.0#/Builtins.pkl"
 
 local linters = new Mapping<String, Step> {
   ["byte_order_marker"] = (Builtins.byte_order_marker) {}
@@ -14,8 +14,6 @@ local linters = new Mapping<String, Step> {
   ["mise"] = (Builtins.mise) {}
   ["mixed_line_ending"] = (Builtins.mixed_line_ending) {}
   ["newlines"] = (Builtins.newlines) {}
-  ["pkl"] = (Builtins.pkl) {}
-  ["pkl_format"] = (Builtins.pkl_format) { depends = "pkl" }
   ["trailing_whitespace"] = (Builtins.trailing_whitespace) { exclude = List("**/*.md") }
 
   ["ruff_format"] = (Builtins.ruff_format) {
@@ -24,18 +22,12 @@ local linters = new Mapping<String, Step> {
   }
   ["ruff"] = (Builtins.ruff) {
     check = "pixi run -q -e lint -- ruff check --force-exclude -- {{ files }}"
-    fix = "pixi run -q -e lint -- ruff check --force-exclude --fix -- {{ files }}"
     depends = "ruff_format"
+    fix = "pixi run -q -e lint -- ruff check --force-exclude --fix -- {{ files }}"
   }
 }
 
 hooks {
-  ["pre-commit"] {
-    fix = true
-    stage = false
-    fail_on_fix = true
-    steps = linters
-  }
   ["check"] {
     stage = false
     steps = linters
@@ -43,6 +35,12 @@ hooks {
   ["fix"] {
     fix = true
     stage = false
+    steps = linters
+  }
+  ["pre-commit"] {
+    fix = true
+    stage = true
+    stash = "patch-file"
     steps = linters
   }
 }

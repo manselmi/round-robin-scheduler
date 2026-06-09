@@ -38,4 +38,3 @@ run = ['mise upgrade --local', 'mise lock', 'pixi update']
 [tools]
 hk = 'latest'
 pixi = 'latest'
-pkl = 'latest'
