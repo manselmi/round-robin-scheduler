@@ -1,21 +1,20 @@
 // vim: set ft=pkl :
 
-amends "package://github.com/jdx/hk/releases/download/v1.47.0/hk@1.47.0#/Config.pkl"
-import "package://github.com/jdx/hk/releases/download/v1.47.0/hk@1.47.0#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v1.48.0/hk@1.48.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.48.0/hk@1.48.0#/Builtins.pkl"
 
 local linters = new Mapping<String, Step> {
-  ["byte_order_marker"] = (Builtins.byte_order_marker) {}
-  ["check_added_large_files"] = (Builtins.check_added_large_files) {}
-  ["check_case_conflict"] = (Builtins.check_case_conflict) {}
-  ["check_executables_have_shebangs"] = (Builtins.check_executables_have_shebangs) {}
-  ["check_merge_conflict"] = (Builtins.check_merge_conflict) {}
-  ["check_symlinks"] = (Builtins.check_symlinks) {}
-  ["detect_private_key"] = (Builtins.detect_private_key) {}
-  ["mise"] = (Builtins.mise) {}
-  ["mixed_line_ending"] = (Builtins.mixed_line_ending) {}
-  ["newlines"] = (Builtins.newlines) {}
+  ["byte_order_marker"] = Builtins.byte_order_marker
+  ["check_added_large_files"] = Builtins.check_added_large_files
+  ["check_case_conflict"] = Builtins.check_case_conflict
+  ["check_executables_have_shebangs"] = Builtins.check_executables_have_shebangs
+  ["check_merge_conflict"] = Builtins.check_merge_conflict
+  ["check_symlinks"] = Builtins.check_symlinks
+  ["detect_private_key"] = Builtins.detect_private_key
+  ["mise"] = Builtins.mise
+  ["mixed_line_ending"] = Builtins.mixed_line_ending
+  ["newlines"] = Builtins.newlines
   ["trailing_whitespace"] = (Builtins.trailing_whitespace) { exclude = List("**/*.md") }
-
   ["ruff_format"] = (Builtins.ruff_format) {
     check_diff = "pixi run -q -e lint -- ruff format --quiet --force-exclude --diff -- {{ files }}"
     fix = "pixi run -q -e lint -- ruff format --quiet --force-exclude -- {{ files }}"
