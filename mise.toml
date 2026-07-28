@@ -17,7 +17,6 @@ lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
 
 
 [task_config]
-cascade = true
 shell = 'sh -euo pipefail -c'
 
 
