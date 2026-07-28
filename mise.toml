@@ -1,8 +1,8 @@
 # vim: set ft=toml :
 
 
-# https://github.com/jdx/mise/pull/10111
-min_version = '2026.5.16'
+# https://github.com/jdx/mise/pull/11354
+min_version = '2026.7.15'
 
 
 [hooks]
@@ -14,8 +14,11 @@ experimental = true
 locked = true
 lockfile = true
 lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
-unix_default_file_shell_args = 'sh -euo pipefail'
-unix_default_inline_shell_args = 'sh -euo pipefail -c'
+
+
+[task_config]
+cascade = true
+shell = 'sh -euo pipefail -c'
 
 
 [tasks.hooks-install]
@@ -29,8 +32,13 @@ run = 'hk uninstall'
 [tasks.lint]
 run = 'hk fix --all'
 
+[tasks.lock]
+# required to correctly initialize lockfile when locked = true
+env.MISE_LOCKED = '0'
+run = ['mise install', 'mise lock', 'pixi lock']
+
 [tasks.upgrade]
-# required to correctly initialize lockfile when locked = true as of 2026.5.16
+# required to correctly initialize lockfile when locked = true
 env.MISE_LOCKED = '0'
 run = ['mise upgrade --local', 'mise lock', 'pixi update']
 
