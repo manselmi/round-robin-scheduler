@@ -65,6 +65,7 @@ ignore = [
   'S603',  # https://docs.astral.sh/ruff/rules/subprocess-without-shell-equals-true/
   'S606',  # https://docs.astral.sh/ruff/rules/start-process-with-no-shell/
   'S607',  # https://docs.astral.sh/ruff/rules/start-process-with-partial-path/
+  'T201',  # https://docs.astral.sh/ruff/rules/print/
   'TD002',  # https://docs.astral.sh/ruff/rules/missing-todo-author/
   'TD003',  # https://docs.astral.sh/ruff/rules/missing-todo-link/
   'W191',  # https://docs.astral.sh/ruff/rules/tab-indentation/
