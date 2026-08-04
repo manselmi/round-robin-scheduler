@@ -20,24 +20,24 @@ url = "https://github.com/jdx/hk/releases/download/v1.54.0/hk-aarch64-apple-darw
 url_api = "https://api.github.com/repos/jdx/hk/releases/assets/496037130"
 
 [[tools.pixi]]
-version = "0.76.0"
+version = "0.76.1"
 backend = "github:prefix-dev/pixi"
 
 [tools.pixi."platforms.linux-arm64"]
-checksum = "sha256:1f654fecd9efe259159a44008dbfb42095451991dd5a3263f4a6a5a2e26a9019"
-url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.0/pixi-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/500018858"
+checksum = "sha256:e7c9d7f128fe02d20b212c0ba9b8ab445907b415155b72ca93f3120e63a8fbb3"
+url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.1/pixi-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/501223332"
 provenance = "github-attestations"
 
 [tools.pixi."platforms.linux-x64"]
-checksum = "sha256:557dc28e35a5789ea32d2217bd2550699e049403c78ef5239eaa574d96aa13cb"
-url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.0/pixi-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/500018961"
+checksum = "sha256:8e2ab7630f5bc1e8aa38d236842e20f565f7aa0834687e53670b7c86ba54c90f"
+url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.1/pixi-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/501223455"
 provenance = "github-attestations"
 
 [tools.pixi."platforms.macos-arm64"]
-checksum = "sha256:d84ce0e4755bf319fcfc24580799445028bfe7f4b1d9fd8eaa917850148531e6"
-url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.0/pixi-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/500018797"
+checksum = "sha256:ad059ad5dbe6de0f5cd4b0740a7f95f47c8e1270bae608c32203d1511a7af880"
+url = "https://github.com/prefix-dev/pixi/releases/download/v0.76.1/pixi-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/prefix-dev/pixi/releases/assets/501223293"
 provenance = "github-attestations"
 provenance_verified = true
