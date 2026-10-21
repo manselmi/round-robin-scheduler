@@ -1,8 +1,13 @@
+#:schema https://mise.jdx.dev/schema/mise.json
 # vim: set ft=toml :
+#
+# https://mise.jdx.dev/configuration.html
 
 
-# https://github.com/jdx/mise/releases/tag/v2026.9.7
-min_version = '2026.9.7'
+# Removes trust in the compromised eMudhra CA certificates.
+# https://github.com/jdx/mise/pull/14781
+# https://github.com/jdx/mise/releases/tag/v2026.10.17
+min_version = '2026.10.17'
 
 
 [hooks]
@@ -10,7 +15,6 @@ postinstall = [{ task = 'hooks-install' }, { run = 'pixi install --all' }]
 
 
 [settings]
-experimental = true
 locked = true
 lockfile = true
 lockfile_platforms = ['linux-arm64', 'linux-x64', 'macos-arm64']
