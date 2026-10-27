@@ -14,7 +14,7 @@ platforms = [
 ]
 
 [tool.pixi.dependencies]
-python = { version = '>=3.14,<3.15' }
+python = { version = '~=3.14.0' }
 
 [tool.pixi.pypi-dependencies]
 networkx = { version = '*' }
